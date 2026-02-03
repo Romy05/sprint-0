@@ -1,0 +1,8 @@
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blue;
+}
+
+.IntroSection {
+    background-image: url('public/images/romy')
+}
