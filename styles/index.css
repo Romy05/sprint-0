@@ -7,7 +7,7 @@
 body {
     box-sizing: border-box;
     background-color: var(--c-bg);
-    cursor: url('/public/icons/cursor.svg') 16 16, auto;
+    cursor: url('../public/icons/cursor.svg') 16 16, auto;
 }
 
 h1 {
@@ -35,11 +35,11 @@ h2 {
 }
 
 .intro h1::before {
-    background: url('/public/icons/double-alt-arrow-right.svg') no-repeat center;
+    background: url('../public/icons/double-alt-arrow-right.svg') no-repeat center;
 }
 
 .intro h2::before {
-    background: url('/public/icons/alt-arrow-right.svg') no-repeat center;
+    background: url('../public/icons/alt-arrow-right.svg') no-repeat center;
 }
 
 .intro {
