@@ -7,4 +7,4 @@ Vandaag heb ik de eerste opzet van het project gemaakt en heb ik nagedacht over 
 
 ## Checkout - 4 februari 2026
 
-Vandaag ben ik verder gegaan met het positioneren van foto's in met flexbox en heb ik een workshop gevolgd in scroll-driven animations. Morgen wil ik 
+Vandaag ben ik verder gegaan met het positioneren van foto's in met flexbox en heb ik een workshop gevolgd in scroll-driven animations.
