@@ -1,8 +1,112 @@
-h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: blue;
+:root {
+    --c-primary: #15196e;
+    --c-secondary: #50a7e1 ;
+    --c-bg: #ebb8f7;
 }
 
-.IntroSection {
-    background-image: url('public/images/romy')
+body {
+    box-sizing: border-box;
+    background-color: var(--c-bg);
+    cursor: url('/public/icons/cursor.svg') 16 16, auto;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+    color: var(--c-primary);
+}
+
+h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 200;
+    color: var(--c-secondary);
+}
+
+.intro h1::before,
+.intro h2::before {
+    /* inspiratie van het before element met behulp van chatGPT */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: .5em;
+    content: "";
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.intro h1::before {
+    background: url('/public/icons/double-alt-arrow-right.svg') no-repeat center;
+}
+
+.intro h2::before {
+    background: url('/public/icons/alt-arrow-right.svg') no-repeat center;
+}
+
+.intro {
+    margin: 5rem 0;
+    display: flex; 
+    justify-content: space-between;
+    img,
+    video {
+        width: 15rem;
+        max-height: 20rem;
+        object-fit: cover;
+        border: .5rem solid white;
+        border-radius: 15% 5% 15% 5%;
+    }
+
+    .text {
+        background: white; 
+        border-radius: 15%;
+        padding: .5rem;
+        position: absolute;
+        z-index: 20;
+        margin-inline: 5rem;
+    }
+
+    .media {
+        position: relative;
+        justify-content: center;
+    }
+}
+
+.cards {
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    > :nth-child(1) {
+        transform: translateX(5rem) rotate(-5deg);
+    }
+
+    > :nth-child(2) {
+        transform: rotate(15deg);
+        z-index: -1
+    }
+
+    > :nth-child(3) {
+        transform: translateX(-5rem) rotate(25deg);
+        Z-index: -2;
+    }   
+
+    > *:hover {
+        z-index: 10;
+    }
+
+    > * {
+        position: relative;
+        transition: transform 0.3s, z-index 0.3s;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .intro {
+        .text {
+            position: static;
+            background: unset;
+            background: transparent;
+        }
+    }
+
 }
