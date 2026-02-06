@@ -27,7 +27,8 @@ h1 {
     color: var(--c-primary);
 }
 
-h2 {
+h2,
+label {
     font-size: 2em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 200;
@@ -35,7 +36,11 @@ h2 {
     color: var(--c-secondary);
 }
 
-
+label {
+    background: white;
+    padding-inline: 1rem;
+    border-radius: 1rem;
+}
 
 .intro h1::before,
 .intro h2::before {
