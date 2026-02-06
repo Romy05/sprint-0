@@ -5,8 +5,11 @@
     cursor: url('../public/icons/cursor.svg') 16 16, auto;
 }
 
-body {
+* {
     box-sizing: border-box;
+}
+
+body {
     background-color: var(--c-bg);
 }
 
@@ -48,7 +51,7 @@ h2 {
 
 .intro {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -66,6 +69,10 @@ h2 {
     perspective: 1000px;
     transform-style: preserve-3d;
     display: grid;
+
+    @media (min-width: 360px) {
+        align-self: flex-start;
+    }
 }
 
 .card {
@@ -74,22 +81,31 @@ h2 {
 
     background: none;
     border: none;
-    width: min(50vw, 25em);
+    width: min(45vw, 25em);
     aspect-ratio:2/3;
     border-radius: 1.5rem;
 
     transform-style: preserve-3d;
-    transform-origin: 50% calc(100% + 5%);
+    transform-origin: 50% calc(100% + 2.5%);
     transition: transform 3s ease;
 
     &:hover {
         cursor: url('../public/icons/cursor-dice.svg') 16 16, auto;
+    }
+
+    @media (min-width: 360px) {
+        transform-origin: 100% 50%;
     }
 }
 
 .card.open {
     transform: 
         rotateX( calc( -179.4deg - sibling-index() * .2deg));
+
+        @media (min-width: 360px) {
+            transform:
+                rotateY( calc( 179.4deg + sibling-index() * .2deg));
+        }
 }
 
 .card-inner {
@@ -133,20 +149,52 @@ h2 {
     border-radius: inherit;
     transform: rotateX(180deg);
 
+    @media (min-width: 360px) {
+        transform: rotateY(180deg);
+    }
+
     &> section {
-        display: flex;
+        position: relative;
+        padding-inline: .5rem;
         flex-direction: column;
+        display: flex;
         justify-content: space-around;
         align-items: center;
         height: 100%;
         width: 100%;
-        font-size: 1.25em;
+        font-size: clamp(0.5rem, 3vw, 1.25rem);
         text-align: center;
         align-self: center;
         color: white;
         
-        &> p {
-            padding-inline: 1rem;
+        &> * {
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        &> dl {
+            display: grid;
+            gap: .25rem;
+            text-align: start;
+            width: 100%;
+            overflow-wrap: break-word;
+
+            & dt {
+                font-weight: bold;
+            }
+
+            & dd {
+                margin-inline-start: 1.5rem;
+
+                &::before {
+                    content: '> '
+                }
+            }
+        }
+
+        &> #emoji {
+            position: absolute;
+            top: 0;
         }
 
         &> img {
@@ -154,16 +202,4 @@ h2 {
             height: min-content; 
         }
     }
-}
-
-
-@media (min-width: 768px) {
-    .intro {
-        .text {
-            position: static;
-            background: unset;
-            background: transparent;
-        }
-    }
-
 }

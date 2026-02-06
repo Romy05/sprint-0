@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
     <head>
-        <script src="./script/index.js" type="text/javascript" defer></script>
+        <script src="./src/index.js" type="module" defer></script>
         <link rel="stylesheet" href="./styles/index.css"/>
         <title>
             Minor Web design & development Sprint 0 - Romy Groen
@@ -14,7 +14,6 @@
             </section>
 
             <section class="cards">
- 
 
                 <!--Het gebruik van card-front en card-back divs geïnspireerd door ChatGPT-->
             
@@ -62,9 +61,26 @@
 
                         <div class="card-front">
                             <section>
-                                <p>
-                                    Feitje over mijzelf 3 
-                                </p>
+                               <dl>
+                                    <dt>Bijnaam</dt>
+                                    <dd id="nickname"></dd>
+                                    
+                                    <dt>Naam</dt>
+                                    <dd id="name"></dd>
+
+                                    <dt>Leeftijd</dt>
+                                    <dd id="age"></dd>
+
+                                    <dt>Woonplaats</dt>
+                                    <dd id="city"></dd>
+
+                                    <dt>GitHub handle</dt>
+                                    <dd id="github"></dd>
+
+                                    <dt>Favoriete pokémon</dt>
+                                    <dd id="pokemon"></dd>
+                               </dl>
+                                <p id="emoji"></p>
                             </section>
                         </div>
                     </div>
@@ -74,6 +90,13 @@
                     <source src="#" />
                 </audio>
             </section>
+        </section>
+        <section>
+            <label>
+                <input type="checkbox" />
+                Pokémon Mode
+            </label>
+            
         </section>
     </body>
 </html>
