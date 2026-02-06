@@ -3,13 +3,19 @@
     --c-secondary: #50a7e1 ;
     --c-bg: #ebb8f7;
     cursor: url('../public/icons/cursor.svg') 16 16, auto;
+    
+    &:has(input[id="pokemon-theme"]:checked) {
+        --theme:pokemon;
+    }
 }
+
 
 * {
     box-sizing: border-box;
 }
 
 body {
+    overflow: hidden;
     background-color: var(--c-bg);
 }
 
@@ -28,6 +34,8 @@ h2 {
     margin-block: .5rem;
     color: var(--c-secondary);
 }
+
+
 
 .intro h1::before,
 .intro h2::before {
@@ -69,9 +77,11 @@ h2 {
     perspective: 1000px;
     transform-style: preserve-3d;
     display: grid;
+    justify-content: center;
 
     @media (min-width: 360px) {
-        align-self: flex-start;
+        transform: translateX(-50%);
+        align-self: center;
     }
 }
 
@@ -201,5 +211,21 @@ h2 {
             width :min-content;
             height: min-content; 
         }
+    }
+}
+
+
+@container style(--theme:pokemon) {
+    body {
+        background-color: white;
+        background-image: url('../public/images/decidueye.png');
+        background-size: 10%;
+    }
+
+    h1,
+    h2 {
+        padding: .5rem;
+        background: white;
+        border-radius: 1rem;
     }
 }
