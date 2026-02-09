@@ -1,15 +1,6 @@
-import { getRomyData } from './service/romyService.js';
+import { getValidCourseStudents, getRomyData } from './service/studentService.js';
 import { getPokemonData } from './service/pokemonService.js';
-
-const buttons = document.querySelectorAll("button.card");
-
-buttons.forEach(button => {
-    button.addEventListener('click', toggleOpen);
-})
-
-function toggleOpen(event) {
-    event.target.classList.toggle('open');
-}
+import { distributeCards, initMemory } from './helper/memoryGame.js';
 
 // Haal data over mij op uit de api
 export const romyData = await getRomyData();
@@ -45,6 +36,24 @@ emojiField.textContent = romyData.emoji;
 const pokemonCheckbox = document.getElementById('pokemon-theme')
 
 pokemonCheckbox.addEventListener('click', togglePokemonCards)
+
+// Haal alle minor studenten uit de api 
+
+const students = await getValidCourseStudents();
+console.log(students);
+const shuffledCards = distributeCards(students);
+console.log(shuffledCards);
+initMemory(shuffledCards);
+
+const cardButtons = document.querySelectorAll("button.card");
+
+cardButtons.forEach(button => {
+    button.addEventListener('click', toggleOpen);
+})
+
+function toggleOpen(event) {
+    event.target.classList.toggle('open');
+}
 
 // Als pokemon mode aanstaat, vervang de elementen
 function togglePokemonCards(event) {

@@ -1,25 +1,26 @@
 :root {
     --c-primary: #15196e;
-    --c-secondary: #50a7e1 ;
+    --c-secondary: #50a7e1;
     --c-bg: #ebb8f7;
+    --v-card-image-object-fit: cover;
     cursor: url('../public/icons/cursor.svg') 16 16, auto;
     
     &:has(input[id="pokemon-theme"]:checked) {
         --theme:pokemon;
+        --v-card-image-object-fit: contain;
     }
 }
-
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    overflow: hidden;
     background-color: var(--c-bg);
 }
 
 h1 {
+    padding: .5rem;
     font-size: 3em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 300;
@@ -29,6 +30,7 @@ h1 {
 
 h2,
 label {
+    padding: .5rem;
     font-size: 2em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 200;
@@ -37,6 +39,9 @@ label {
 }
 
 label {
+    position: sticky;
+    top: 0.5rem;
+    z-index: 9999;
     background: white;
     padding-inline: 1rem;
     border-radius: 1rem;
@@ -69,15 +74,16 @@ label {
     justify-content: center;
     align-items: center;
     margin-inline: 1rem;
+}
 
-    .text {
-        text-align: center;
-        border-radius: 15%;
-        padding: .5rem;
-    }
+.header-text {
+    text-align: center;
+    border-radius: 15%;
+    padding: .5rem;
 }
 
 .cards {
+    /* Het gebruik van grid en de werking van de 3d kaarten heb ik van Sanne 't Hooft */
     position: relative;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -90,27 +96,38 @@ label {
     }
 }
 
+.memory-card,
 .card {
-    grid-row-start: 1;
-    grid-column-start: 1;
-
     background: none;
     border: none;
-    width: min(45vw, 25em);
-    aspect-ratio:2/3;
     border-radius: 1.5rem;
 
     transform-style: preserve-3d;
-    transform-origin: 50% calc(100% + 2.5%);
-    transition: transform 3s ease;
 
     &:hover {
         cursor: url('../public/icons/cursor-dice.svg') 16 16, auto;
     }
+}
+
+.card {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    width: min(45vw, 25em);
+    aspect-ratio: 2/3;
+
+    transition: transform 3s ease;
+    transform-origin: 50% calc(100% + 2.5%);
 
     @media (min-width: 360px) {
         transform-origin: 100% 50%;
     }
+}
+
+.memory-card {
+    aspect-ratio: 1/1;
+
+    transition: transform 1.5s ease;
 }
 
 .card.open {
@@ -123,6 +140,12 @@ label {
         }
 }
 
+.memory-card.open {
+    transform: 
+        rotateY(.5turn);
+}
+
+.memory-card-inner,
 .card-inner {
     background: white;
     border: .5rem solid white;
@@ -141,95 +164,149 @@ label {
 }
 
 .card-front,
-.card-back {
+.card-back,
+.memory-card-front,
+.memory-card-back {
     top: 0;
     inset: 0;  
     position: absolute;
     backface-visibility: hidden;
+
+    border-radius: inherit;
 }
 
 .card-back {
-    border-radius: inherit;
     &> * {
         width: 100%;
         height: 100%;   
-        object-fit: cover;
+        object-fit: var(--v-card-image-object-fit);
         border: none;
         border-radius: inherit;
     }
 }
 
-.card-front {
+.card-front,
+.memory-card-front {
     background-color: var(--c-secondary);
-    border-radius: inherit;
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
+}
 
-    @media (min-width: 360px) {
-        transform: rotateY(180deg);
-    }
-
-    &> section {
-        position: relative;
-        padding-inline: .5rem;
-        flex-direction: column;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        font-size: clamp(0.5rem, 3vw, 1.25rem);
-        text-align: center;
-        align-self: center;
-        color: white;
-        
-        &> * {
-            overflow-wrap: break-word;
-            hyphens: auto;
-        }
-
-        &> dl {
-            display: grid;
-            gap: .25rem;
-            text-align: start;
-            width: 100%;
-            overflow-wrap: break-word;
-
-            & dt {
-                font-weight: bold;
-            }
-
-            & dd {
-                margin-inline-start: 1.5rem;
-
-                &::before {
-                    content: '> '
-                }
-            }
-        }
-
-        &> #emoji {
-            position: absolute;
-            top: 0;
-        }
-
-        &> img {
-            width :min-content;
-            height: min-content; 
-        }
+.card-front {
+    @media (max-width: 359px) {
+        transform: rotateX(180deg);
     }
 }
 
+.card-front > section {
+    position: relative;
+    padding-inline: .5rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: clamp(0.5rem, 3vw, 1.25rem);
+    text-align: center;
+    align-self: center;
+    color: white;
+    
+    &> * {
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    &> dl {
+        display: grid;
+        gap: .25rem;
+        text-align: start;
+        width: 100%;
+        overflow-wrap: break-word;
+
+        & dt {
+            font-weight: bold;
+        }
+
+        & dd {
+            margin-inline-start: 1.5rem;
+
+            &::before {
+                content: '> '
+            }
+        }
+    }
+
+    &> #emoji {
+        position: absolute;
+        top: 0;
+    }
+
+    &> img {
+        width: min-content;
+        height: min-content;
+    }
+}
+
+.memory-card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: clamp(.5em, 2vw, 1.5rem);
+    overflow-wrap: break-word;
+    color: white;
+
+    &> img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+    }
+}
+
+.memory-card-back > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.memory-field {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: .5rem;
+    width: min(80vw, 80%);
+
+    @media (min-width: 359px) {
+        grid-template-columns: auto auto auto;
+    }
+
+    @media (min-width: 599px) {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+.memory-card-extra {
+    @media (max-width: 360px) {
+        display: none;
+    }
+}
+
+.memory {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+}
 
 @container style(--theme:pokemon) {
     body {
-        background-color: white;
+        background-color: var(--c-secondary);
         background-image: url('../public/images/decidueye.png');
         background-size: 10%;
     }
 
     h1,
     h2 {
-        padding: .5rem;
         background: white;
         border-radius: 1rem;
     }
