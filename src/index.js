@@ -1,6 +1,7 @@
 import { getValidCourseStudents, getRomyData } from './service/studentService.js';
 import { getPokemonData } from './service/pokemonService.js';
 import { distributeCards, initMemory } from './helper/memoryGame.js';
+import { playCardFlipAudio } from './helper/audio.js';
 
 // Haal data over mij op uit de api
 export const romyData = await getRomyData();
@@ -51,6 +52,7 @@ cardButtons.forEach(button => {
 
 function toggleOpen(event) {
     event.target.classList.toggle('open');
+    playCardFlipAudio();
 }
 
 const resetButton = document.querySelector("button.reset-button");

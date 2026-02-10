@@ -1,3 +1,5 @@
+import { playCardFlipAudio } from '../helper/audio.js';
+
 let score = 0;
 
 export function distributeCards(students) {
@@ -113,6 +115,7 @@ function generateCard(cardData) {
 }
 
 export function handleOpenCard(event) {
+    playCardFlipAudio();
     const cardToCompare = document.querySelector('.memory-card.open[data-guessed="false"]');
     event.target.classList.add('open');
     event.target.removeEventListener('click', handleOpenCard);
@@ -131,6 +134,7 @@ export function handleOpenCard(event) {
         } else {
             cardToCompare.classList.remove('open');
             event.target.classList.remove('open');
+            playCardFlipAudio();
         }
         
         toggleCardsListener(true);
@@ -149,7 +153,6 @@ function toggleCardsListener(add) {
             card.removeEventListener('click', handleOpenCard);
         })
     }
-
 }
 
 function compareCards(card, cardToCompare) {
