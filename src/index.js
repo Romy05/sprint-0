@@ -40,9 +40,7 @@ pokemonCheckbox.addEventListener('click', togglePokemonCards)
 // Haal alle minor studenten uit de api 
 
 const students = await getValidCourseStudents();
-console.log(students);
 const shuffledCards = distributeCards(students);
-console.log(shuffledCards);
 initMemory(shuffledCards);
 
 const cardButtons = document.querySelectorAll("button.card");
@@ -54,6 +52,12 @@ cardButtons.forEach(button => {
 function toggleOpen(event) {
     event.target.classList.toggle('open');
 }
+
+const resetButton = document.querySelector("button.reset-button");
+resetButton.addEventListener('click', () => {
+    const cards = distributeCards(students);
+    initMemory(cards);
+});
 
 // Als pokemon mode aanstaat, vervang de elementen
 function togglePokemonCards(event) {

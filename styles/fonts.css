@@ -1,0 +1,14 @@
+@font-face {
+    font-family: dongle-bold;
+    src: url('../public/fonts/Dongle-Bold.ttf');
+}
+
+@font-face {
+    font-family: dongle-light;
+    src: url('../public/fonts/Dongle-Light.ttf');
+}
+
+@font-face {
+    font-family: dongle;
+    src: url('../public/fonts/Dongle-Regular.ttf');
+}
