@@ -10,7 +10,6 @@ const cardBacks = document.querySelectorAll('.card-back')
 const initialCardBackMedia = Array.from(cardBacks).map(cardBack => {
     return cardBack.firstElementChild;
 });
-console.log(initialCardBackMedia);
 
 // Voeg de opgehaalde data toe aan de html
 const nickNameField = document.getElementById('nickname');
