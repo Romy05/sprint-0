@@ -21,6 +21,8 @@ body {
     background-color: var(--c-bg);
     display: grid;
     gap: 1rem;
+    margin: 0;
+    margin-bottom: 20%;
 }
 
 h1 {
@@ -68,16 +70,6 @@ button {
     &:hover {
         cursor: pointer;
     }
-}
-
-label {
-    position: fixed;
-    top: 0.5rem;
-    z-index: 9999;
-    background: white;
-    padding-inline: 1rem;
-    border-radius: 1rem;
-    border: .25rem solid var(--c-primary);
 }
 
 button.reset-button {
@@ -343,6 +335,77 @@ button.reset-button {
         align-items: center;
         justify-content: center;
     }
+}
+
+.ducks-container {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    bottom: 0;
+    display: grid;
+}
+
+.wave-wrapper {
+    position: relative;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    display: flex;
+    width: 200vw;
+    animation-timeline: scroll(root);
+    animation-name: moveWaves;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.wave {
+    width: 100vw;
+}
+
+.mother-duck {
+    position: absolute;
+    left: 54%;
+    top: 50%;
+    height: clamp(3rem, 8vw, 5rem);
+    width: clamp(3rem, 8vw, 5rem);
+
+    @media (max-width: 360px) {
+        top: 10%;
+    }
+}
+
+.duckling {
+    position: absolute;
+    left: 51.5%;
+    top: 65%;
+    height: clamp(1rem, 5vw, 3rem);
+    width: clamp(1rem, 5vw, 3rem);
+
+    @media (max-width: 360px) {
+        top: 10%;
+    }
+
+    &:nth-of-type(2) {
+        left: 50%;
+    }
+}
+
+@keyframes moveWaves {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+
+.pokemon-toggle {
+    position: fixed;
+    z-index: 9999;
+    background: white;
+    margin: .5rem;
+    padding-inline: 1rem;
+    border-radius: 1rem;
+    border: .25rem solid var(--c-primary);
 }
 
 @container style(--theme:pokemon) {
