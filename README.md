@@ -20,3 +20,6 @@ Deze week heb ik geleerd over CSS animaties, html elementen en attributen. Verde
 
 ## Checkout - 9 februari 2026
 Vandaag ben ik begonnen met een memory spel voor op mijn website die data over mijn studenten ophaalt uit een api. De bedoeling is om de foto's met de personen te matchen. Ik ben hier 5 uur mee bezig geweest. Morgen wil ik nog een reset knop toevoegen en een score functionaliteit. Het zou leuk zijn als de scores kunnen worden opgeslagen in localstorage. Morgen wil ik ook mijn leerdoelen toevoegen in mijn website.
+
+## Checkout - 10 februari 2026 
+Vandaag heb ik een scroll animatie toegevoegd van een eendje wat heen en terug beweegt wanneer je scrolt. Hier ben ik zo'n 3 uur mee bezig geweest. Ook heb ik nog een score toegevoegd aan het en een resetknop memoryspel.
