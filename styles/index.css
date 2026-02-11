@@ -42,8 +42,7 @@ h1 {
     color: var(--c-primary);
 }
 
-h2,
-label {
+h2 {
     font-size: 2em;
     font-family: atma-bold, sans-serif;
     font-weight: 200;
@@ -79,6 +78,8 @@ p {
 
 label {
     font-family: atma-semi, sans-serif;
+    color: var(--c-primary);
+    cursor: pointer;
 }
 
 button { 
@@ -408,6 +409,8 @@ button.reset-button {
     grid-column-start: 1;
     display: flex;
     width: 200vw;
+
+    /*scroll-animation met behulp van de sessie van Cyd en haar codepens*/
     animation-timeline: scroll(root);
     animation-name: moveWaves;
     animation-timing-function: ease;
@@ -456,13 +459,16 @@ button.reset-button {
 }
 
 .pokemon-toggle {
-    position: fixed;
-    z-index: 9999;
     background: white;
     margin: 0 .5rem .5rem .5rem;
     padding-inline: 1rem;
     border-radius: 1rem;
     border: .25rem solid var(--c-primary);
+
+    @media (min-width: 1024px) {
+        position: fixed;
+        z-index: 9999;
+    }
 }
 
 @container style(--theme:pokemon) {

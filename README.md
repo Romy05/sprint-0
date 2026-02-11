@@ -10,7 +10,7 @@ This is the deliverable website for my first assignment for the web design &amp;
 Vandaag heb ik de eerste opzet van het project gemaakt en heb ik nagedacht over mijn leerdoelen. Ik wil graag meer kunnen doen met CSS. Verder wil ik ook meer gaan leren over toegankelijkheid van een website.
 
 ## Checkout - 4 februari 2026
-Vandaag ben ik verder gegaan met het positioneren van foto's in met flexbox en heb ik een workshop gevolgd in scroll-driven animations.
+Vandaag ben ik verder gegaan met het positioneren van foto's in CSS met flexbox en heb ik een workshop gevolgd in scroll-driven animations.
 
 ## Checkout - 5 februari 2026
 Vandaag heb ik een soort card-deck gemaakt waar feitjes over mij op staan. Dit werkt ook volledig met animaties. Ik ben hier 5 uur mee bezig geweest. Wel langer dan ik had verwacht. Morgen wil ik kijken of ik het voor desktop zo kan aanpassen dat de nieuwe stapel naast de stapel komt in plaats van er onder.
@@ -26,3 +26,13 @@ Vandaag heb ik een scroll animatie toegevoegd van een eendje wat heen en terug b
 
 
 ### Bronvermelding
+Bronnen die gebruikt zijn tijdens het maken van deze website:
+
+- Mensen: 
+    1. Sanne 't Hooft -> 3D animatie van de openklappende kaarten.
+    2. Cyd Stumpel -> Scroll-driven animations.
+- Codepen: 
+    1. Ranjithkumar10 (https://codepen.io/Ranjithkumar10/pen/mdqeoVp) -> Confetti.
+- AI: 
+    Tijdens het project heb ik ChatGPT-4o gebruikt voor het idee om card-back en card-front te gebruiken voor de kaarten die flippen. 
+    Ook heb ik de svg's van de waves laten genereren door dit model.

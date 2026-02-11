@@ -1,4 +1,4 @@
-/*BRON: https://codepen.io/Ranjithkumar10/pen/mdqeoVp*/
+/*BRON: https://codepen.io/Ranjithkumar10/pen/mdqeoVp */
 
 import { playKidsCheeringAudio } from "./audio.js";
 

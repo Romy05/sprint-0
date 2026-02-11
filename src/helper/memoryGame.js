@@ -4,6 +4,7 @@ import { makeItRain } from '../helper/confetti.js';
 const amountOfMatches = 6; // Dit getal zou nog kunnen veranderen via een instelling in de toekomst misschien.
 let score = 0;
 
+// Shuffle de kaarten en scheidt de foto van de naam
 export function distributeCards(cards) {
     let memoryCards = [];
 
@@ -35,6 +36,7 @@ export function distributeCards(cards) {
     return [...memoryCards].sort(() => Math.random() - 0.5);
 }
 
+// Render het speelveld
 export function initMemory(memoryCardData) {
     score = 0;
     updateScore(score);
