@@ -32,7 +32,7 @@ export async function getValidCourseStudents() {
                     name: person.name,
                     nickName: person.nickname,
                     emoji: person.fav_emoji,
-                    avatarUrl: person.avatar,
+                    imageUrl: person.avatar,
                 }
             }   
         )

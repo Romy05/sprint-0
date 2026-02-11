@@ -21,7 +21,7 @@ body {
     background-color: var(--c-bg);
     display: grid;
     gap: 1rem;
-    margin: 0;
+    margin-top: .5rem;
     margin-bottom: 20%;
 }
 
@@ -194,7 +194,7 @@ button.reset-button {
 }
 
 .card-back {
-    &> * {
+    > * {
         width: 100%;
         height: 100%;   
         object-fit: var(--v-card-image-object-fit);
@@ -229,31 +229,31 @@ button.reset-button {
     align-self: center;
     color: white;
     
-    &> * {
+    > * {
         overflow-wrap: break-word;
         hyphens: auto;
     }
 
-    &> dl {
+    > dl {
         text-align: start;
         width: 100%;
         overflow-wrap: break-word;
 
-        & dd {
+        dd {
             margin-inline-start: 1.5rem;
 
-            &::before {
+            ::before {
                 content: '> '
             }
         }
     }
 
-    &> #emoji {
+    > #emoji {
         position: absolute;
         top: 0;
     }
 
-    &> img {
+    > img {
         width: min-content;
         height: min-content;
     }
@@ -272,7 +272,7 @@ button.reset-button {
     overflow-wrap: break-word;
     color: white;
 
-    &> img {
+    > img {
         object-fit: cover;
         height: 100%;
         width: 100%;
@@ -292,11 +292,11 @@ button.reset-button {
 }
 
 .memory-card:hover {
-    & .memory-card-back {
+    .memory-card-back {
         background-color: white;
     }
 
-    & .question-svg {
+    .question-svg {
         stroke: var(--c-primary);
         color: var(--c-secondary);
     }
@@ -329,12 +329,16 @@ button.reset-button {
     gap: .5rem;
     align-items: center;
 
-    &> .header-text {
+    > .header-text {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         align-items: center;
         justify-content: center;
     }
+}
+
+.memory-title::before {
+    content: 'Studenten'
 }
 
 .ducks-container {
@@ -402,7 +406,7 @@ button.reset-button {
     position: fixed;
     z-index: 9999;
     background: white;
-    margin: .5rem;
+    margin: 0 .5rem .5rem 0;
     padding-inline: 1rem;
     border-radius: 1rem;
     border: .25rem solid var(--c-primary);
@@ -418,5 +422,37 @@ button.reset-button {
     .header-text {
         background: white;
         border-radius: 1rem;
+    }
+
+    .memory-title::before {
+        content: 'Pokémon'
+    }
+
+    .mother-duck {
+        position: absolute;
+        left: 54%;
+        top: 50%;
+        height: clamp(3rem, 8vw, 8rem);
+        width: clamp(3rem, 8vw, 8rem);
+
+        @media (max-width: 360px) {
+            top: 10%;
+        }
+    }
+
+    .duckling {
+        position: absolute;
+        left: 51.5%;
+        top: 65%;
+        height: clamp(1rem, 5vw, 5rem);
+        width: clamp(1rem, 5vw, 5rem);
+
+        @media (max-width: 360px) {
+            top: 10%;
+        }
+
+        &:nth-of-type(2) {
+            left: 50%;
+        }
     }
 }

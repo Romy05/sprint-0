@@ -2,26 +2,26 @@ import { playCardFlipAudio } from '../helper/audio.js';
 
 let score = 0;
 
-export function distributeCards(students) {
+export function distributeCards(cards) {
     const amountOfMatches = 6; // Dit getal zou nog kunnen veranderen via een instelling in de toekomst misschien.
     let memoryCards = []
 
-    const shuffledStudents = [...students].sort(() => Math.random() - 0.5);
-    const chosenStudents =  shuffledStudents.slice(0, amountOfMatches);
+    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    const chosenCards =  shuffledCards.slice(0, amountOfMatches);
 
-    chosenStudents.forEach((student, index) => {
+    chosenCards.forEach((card, index) => {
         const imageCard = {
             type: 'image',
             pairIndex: index,
-            imageUrl: student.avatarUrl,
+            imageUrl: card.imageUrl,
         }
 
         const textCard = {
             type: 'text',
             pairIndex: index,
-            name: student.name,
-            nickName: student.nickName,
-            emoji: student.emoji,
+            name: card.name,
+            nickName: card.nickName,
+            emoji: card.emoji,
         }
 
         memoryCards = [
