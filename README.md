@@ -24,6 +24,8 @@ Vandaag ben ik begonnen met een memory spel voor op mijn website die data over m
 ## Checkout - 10 februari 2026 
 Vandaag heb ik een scroll animatie toegevoegd van een eendje wat heen en terug beweegt wanneer je scrolt. Hier ben ik zo'n 3 uur mee bezig geweest. Ook heb ik nog een score toegevoegd aan het en een resetknop memoryspel.
 
+## Week checkout - 11 februari
+Deze week heb ik de memory functionaliteit toegevoegd. Dit heb ik gedaan door data over mijn klasgenoten op te halen uit de api. Verder heb ik een scroll animatie toegevoegd waarbij er een paar eenden over het scherm een zwemmen. Ook heb ik gewerkt aan de responsiveness van mijn website. 
 
 ### Bronvermelding
 Bronnen die gebruikt zijn tijdens het maken van deze website:
