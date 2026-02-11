@@ -12,3 +12,28 @@
     font-family: dongle;
     src: url('../public/fonts/Dongle-Regular.ttf');
 }
+
+@font-face {
+    font-family: atma;
+    src: url('../public/fonts/Atma-Regular.ttf');
+}
+
+@font-face {
+    font-family: atma-bold;
+    src: url('../public/fonts/Atma-Bold.ttf');
+}
+
+@font-face {
+    font-family: atma-light;
+    src: url('../public/fonts/Atma-Light.ttf');
+}
+
+@font-face {
+    font-family: atma-medium;
+    src: url('../public/fonts/Atma-Medium.ttf');
+}
+
+@font-face {
+    font-family: atma-semi;
+    src: url('../public/fonts/Atma-SemiBold.ttf');
+}

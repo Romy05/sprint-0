@@ -36,9 +36,6 @@ async function loadRomyData() {
     const cityField = document.getElementById('city');
     cityField.textContent = romyData.city;
 
-    const githubField = document.getElementById('github');
-    githubField.textContent = romyData.userName;
-
     const pokemonField = document.getElementById('pokemon');
     pokemonField.textContent = romyData.pokemon;
 
@@ -70,9 +67,8 @@ function initButtons() {
     });
 
     const resetButton = document.querySelector("button.reset-button");
-    resetButton.addEventListener('click', () => {
-        const cards = distributeCards(students);
-        initMemory(cards);
+    resetButton.addEventListener('click', async () => {
+        await loadMemory();
     });
 }
 

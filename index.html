@@ -2,6 +2,7 @@
 <html lang="nl">
     <head>
         <script src="./src/index.js" type="module" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
         <link rel="stylesheet" href="./styles/index.css"/>
         <link rel="icon" href="public/images/duck.png" />
         <title>
@@ -11,7 +12,7 @@
     <body>
         <section class="pokemon-toggle">
             <input id="pokemon-theme" type="checkbox" />
-            <label for="pokemon-theme">Pokémon Modus</label>
+            <label class="pokemon-label" for="pokemon-theme">Pokémon Modus</label>
         </section>
         <section class="intro">
             <section class="header-text">
@@ -67,7 +68,7 @@
 
                         <div class="card-front">
                             <section>
-                               <dl>
+                               <dl class="romy-info">
                                     <dt>Bijnaam</dt>
                                     <dd id="nickname"></dd>
                                     
@@ -79,9 +80,6 @@
 
                                     <dt>Woonplaats</dt>
                                     <dd id="city"></dd>
-
-                                    <dt>GitHub handle</dt>
-                                    <dd id="github"></dd>
 
                                     <dt>Favoriete pokémon</dt>
                                     <dd id="pokemon"></dd>
@@ -153,5 +151,6 @@
             </div>
         </section>
         <audio id="card-flip" src="public/sounds/freesound_community-flipcard-91468.mp3"></audio>
+        <audio id="kids-cheering" src="public/sounds/kids_cheering.mp3"></audio>
     </body>
 </html>

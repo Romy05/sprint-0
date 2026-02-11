@@ -4,12 +4,19 @@
     --c-primary: #15196e;
     --c-secondary: #50a7e1;
     --c-bg: #ebb8f7;
+
+    --card-width: min(75vw, 25em);
+    --card-height: calc(var(--card-width) * 1.5);
     --v-card-image-object-fit: cover;
     cursor: url('../public/icons/cursor.svg') 16 16, auto;
     
     &:has(input[id="pokemon-theme"]:checked) {
         --theme:pokemon;
         --v-card-image-object-fit: contain;
+    }
+
+    @media (min-width: 400px) {
+        --card-width: min(35vw, 20em);
     }
 }
 
@@ -21,13 +28,14 @@ body {
     background-color: var(--c-bg);
     display: grid;
     gap: 1rem;
+    margin: 0;
     margin-top: .5rem;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 h1 {
     font-size: 3em;
-    font-family: dongle-bold, sans-serif;
+    font-family: atma-bold, sans-serif;
     font-weight: 300;
     padding-inline: .5rem;
     margin-block: .5rem;
@@ -37,7 +45,7 @@ h1 {
 h2,
 label {
     font-size: 2em;
-    font-family: dongle-bold, sans-serif;
+    font-family: atma-bold, sans-serif;
     font-weight: 200;
     padding-inline: .5rem;
     margin-block: .5rem;
@@ -46,7 +54,7 @@ label {
 
 h3 {
     font-size: 1.5em;
-    font-family: dongle, sans-serif;
+    font-family: atma, sans-serif;
     font-weight: 100;
     padding-inline: .5rem;
     margin-block: .5rem;
@@ -54,19 +62,28 @@ h3 {
 }
 
 dd, dt {
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
-p, dd {
-    font-family: dongle, sans-serif;
+dd {
+    font-family: 'Arial Narrow', sans-serif;
 }
 
 dt {
-    font-family: dongle-bold, sans-serif;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+p {
+    font-family: atma, sans-serif;
+}
+
+label {
+    font-family: atma-semi, sans-serif;
 }
 
 button { 
-    font-family: dongle-light, sans-serif;
+    font-size: 1.25rem;
+    font-family: atma-light, sans-serif;
     &:hover {
         cursor: pointer;
     }
@@ -76,13 +93,13 @@ button.reset-button {
     border: .25rem solid white;
     background: var(--c-primary);
     color: white;
-    padding: .5rem 0;
     border-radius: 1rem;
 
     &:hover {
         background: var(--c-secondary);
     }
 }
+
 
 .intro {
     display: flex;
@@ -99,6 +116,13 @@ button.reset-button {
     padding: .5rem;
 }
 
+.romy-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .cards {
     /* Het gebruik van grid en de werking van de 3d kaarten heb ik van Sanne 't Hooft */
     position: relative;
@@ -106,11 +130,21 @@ button.reset-button {
     transform-style: preserve-3d;
     display: grid;
     justify-content: center;
+    transition: ease 3s;
 
-    @media (min-width: 360px) {
+    &:has(.open) {
+        padding-bottom: calc(var(--card-height));
+    }
+
+    @media (min-width: 400px) {
         transform: translateX(-50%);
         align-self: center;
+
+        &:has(.open) {
+            padding-bottom: unset;
+        }
     }
+
 }
 
 .memory-card,
@@ -130,15 +164,14 @@ button.reset-button {
     grid-row-start: 1;
     grid-column-start: 1;
 
-    width: min(70vw, 25em);
+    width: var(--card-width);
     aspect-ratio: 2/3;
 
     transition: transform 3s ease;
     transform-origin: 50% calc(100% + 2.5%);
 
-    @media (min-width: 360px) {
+    @media (min-width: 400px) {
         transform-origin: 100% 50%;
-        width: min(45vw, 25em);
     }
 }
 
@@ -152,7 +185,7 @@ button.reset-button {
     transform: 
         rotateX( calc( -179.4deg - sibling-index() * .2deg));
 
-        @media (min-width: 360px) {
+        @media (min-width: 400px) {
             transform:
                 rotateY( calc( 179.4deg + sibling-index() * .2deg));
         }
@@ -210,7 +243,7 @@ button.reset-button {
 }
 
 .card-front {
-    @media (max-width: 359px) {
+    @media (max-width: 400px) {
         transform: rotateX(180deg);
     }
 }
@@ -258,16 +291,17 @@ button.reset-button {
         height: min-content;
     }
 
-    @media (min-width: 360px) {
+    @media (min-width: 400px) {
         font-size: clamp(0.5rem, 2.75vw, 1.25rem);
     }
 }
 
 .memory-card-front {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     font-size: clamp(.5em, 2vw, 1.5rem);
     overflow-wrap: break-word;
     color: white;
@@ -277,6 +311,14 @@ button.reset-button {
         height: 100%;
         width: 100%;
         border-radius: inherit;
+    }
+
+    > p {
+        margin: 0;
+
+        @media (max-width: 400px) {
+            font-size: 1.5em;
+        }
     }
 }
 
@@ -306,19 +348,21 @@ button.reset-button {
     display: grid;
     grid-template-columns: auto auto;
     gap: .5rem;
-    width: min(80vw, 80%);
+    width: 90vw;
 
-    @media (min-width: 360px) {
+    @media (min-width: 400px) {
+        width: 80vw;
         grid-template-columns: auto auto auto;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 1024px) {
+        width: 70vw;
         grid-template-columns: auto auto auto auto;
     }
 }
 
 .memory-card-extra {
-    @media (max-width: 360px) {
+    @media (max-width: 400px) {
         display: none;
     }
 }
@@ -331,9 +375,13 @@ button.reset-button {
 
     > .header-text {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 1fr;
         align-items: center;
         justify-content: center;
+
+        @media (min-width: 400px) {
+            grid-template-columns: 2fr 1fr 1fr;
+        }
     }
 }
 
@@ -347,6 +395,11 @@ button.reset-button {
     z-index: 9999;
     bottom: 0;
     display: grid;
+}
+
+.ducks-container,
+.ducks-container > * {
+    pointer-events: none;
 }
 
 .wave-wrapper {
@@ -372,7 +425,7 @@ button.reset-button {
     height: clamp(3rem, 8vw, 5rem);
     width: clamp(3rem, 8vw, 5rem);
 
-    @media (max-width: 360px) {
+    @media (max-width: 400px) {
         top: 10%;
     }
 }
@@ -384,8 +437,8 @@ button.reset-button {
     height: clamp(1rem, 5vw, 3rem);
     width: clamp(1rem, 5vw, 3rem);
 
-    @media (max-width: 360px) {
-        top: 10%;
+    @media (max-width: 400px) {
+        top: 60%;
     }
 
     &:nth-of-type(2) {
@@ -406,7 +459,7 @@ button.reset-button {
     position: fixed;
     z-index: 9999;
     background: white;
-    margin: 0 .5rem .5rem 0;
+    margin: 0 .5rem .5rem .5rem;
     padding-inline: 1rem;
     border-radius: 1rem;
     border: .25rem solid var(--c-primary);
@@ -435,7 +488,7 @@ button.reset-button {
         height: clamp(3rem, 8vw, 8rem);
         width: clamp(3rem, 8vw, 8rem);
 
-        @media (max-width: 360px) {
+        @media (max-width: 400px) {
             top: 10%;
         }
     }
@@ -447,7 +500,7 @@ button.reset-button {
         height: clamp(1rem, 5vw, 5rem);
         width: clamp(1rem, 5vw, 5rem);
 
-        @media (max-width: 360px) {
+        @media (max-width: 400px) {
             top: 10%;
         }
 

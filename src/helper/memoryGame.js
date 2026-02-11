@@ -1,10 +1,11 @@
 import { playCardFlipAudio } from '../helper/audio.js';
+import { makeItRain } from '../helper/confetti.js';
 
+const amountOfMatches = 6; // Dit getal zou nog kunnen veranderen via een instelling in de toekomst misschien.
 let score = 0;
 
 export function distributeCards(cards) {
-    const amountOfMatches = 6; // Dit getal zou nog kunnen veranderen via een instelling in de toekomst misschien.
-    let memoryCards = []
+    let memoryCards = [];
 
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
     const chosenCards =  shuffledCards.slice(0, amountOfMatches);
@@ -43,7 +44,7 @@ export function initMemory(memoryCardData) {
     memoryCardData.forEach(cardData => {
         const card = generateCard(cardData);
         memoryContainer.appendChild(card);
-    })
+    });
 }
 
 function generateCard(cardData) {
@@ -92,7 +93,7 @@ function generateCard(cardData) {
 
         const extraInfo = document.createElement('p');
         if (cardData.nickName && cardData.nickName.length <= 11){
-            extraInfo.textContent = `Bijnaam: ${cardData.nickName}${emoji}`;
+            extraInfo.textContent = `${cardData.nickName}${emoji}`;
         } else if (cardData.emoji) {
             extraInfo.textContent = emoji;
         } 
@@ -160,6 +161,11 @@ function compareCards(card, cardToCompare) {
 }
 
 function updateScore(givenScore) {
+    const validScore = givenScore ?? score
     const scoreBoard = document.querySelector('.score');
     scoreBoard.textContent = `Score: ${givenScore ?? score}`;
+
+    if (validScore == amountOfMatches) {
+        makeItRain();
+    }
 }
