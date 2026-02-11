@@ -1,5 +1,6 @@
 # sprint-0
-This is the deliverable website for my first assignment for the web design &amp; development minor at HvA.
+Dit is de eindopdracht van sprint 0 van de web design &amp; development minor bij HvA.
+Je kunt de website live bekijken op: <a href="https://romy05.github.io/sprint-0/">https://romy05.github.io/sprint-0/</a>
 
 ## Leerdoelen 
  1. Ik wil beter worden in animaties met CSS, zodat ik betere code schrijf, waardoor mijn websites visueel aantrekkelijker zijn zonder dat dit veel tijd kost.
