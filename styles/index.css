@@ -16,7 +16,7 @@
     }
 
     @media (min-width: 400px) {
-        --card-width: min(35vw, 20em);
+        --card-width: min(35vw, 50em);
     }
 }
 
@@ -424,24 +424,32 @@ button.reset-button {
 .mother-duck {
     position: absolute;
     left: 54%;
-    top: 50%;
+    top: 10%;
     height: clamp(3rem, 8vw, 5rem);
     width: clamp(3rem, 8vw, 5rem);
 
-    @media (max-width: 400px) {
-        top: 10%;
+    @media (min-width: 400px) {
+        top: 50%;
+    }
+
+    @media (min-width: 2000px) {
+        top: 75%;
     }
 }
 
 .duckling {
     position: absolute;
     left: 51.5%;
-    top: 65%;
+    top: 60%;
     height: clamp(1rem, 5vw, 3rem);
     width: clamp(1rem, 5vw, 3rem);
 
-    @media (max-width: 400px) {
-        top: 60%;
+    @media (min-width: 400px) {
+        top: 65%;
+    }
+
+    @media (min-width: 2000px) {
+        top: 80%;
     }
 
     &:nth-of-type(2) {
