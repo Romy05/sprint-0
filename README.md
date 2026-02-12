@@ -1,5 +1,6 @@
 # sprint-0
-This is the deliverable website for my first assignment for the web design &amp; development minor at HvA.
+Dit is de eindopdracht van sprint 0 van de web design &amp; development minor bij HvA.
+Je kunt de website live bekijken op: <a href="https://romy05.github.io/sprint-0/">https://romy05.github.io/sprint-0/</a>
 
 ## Leerdoelen 
  1. Ik wil beter worden in animaties met CSS, zodat ik betere code schrijf, waardoor mijn websites visueel aantrekkelijker zijn zonder dat dit veel tijd kost.
@@ -18,6 +19,8 @@ Vandaag heb ik een soort card-deck gemaakt waar feitjes over mij op staan. Dit w
 ## Week checkout - 6 februari 2026
 Deze week heb ik geleerd over CSS animaties, html elementen en attributen. Verder heb ik data opgehaald uit verschillende api's middels de JavaScript fetch api. Ik heb mijn website responsive gemaakt en een pokémon modus toegevoegd. Ik wil volgende week mijn leerdoelen verwerken in mijn website en nog een aantal dingen finetunen.
 
+<img width="1739" height="779" alt="Schermafbeelding 2026-02-11 180848" src="https://github.com/user-attachments/assets/05c0b9c1-1d88-4087-9dc2-887375838533" />
+
 ## Checkout - 9 februari 2026
 Vandaag ben ik begonnen met een memory spel voor op mijn website die data over mijn studenten ophaalt uit een api. De bedoeling is om de foto's met de personen te matchen. Ik ben hier 5 uur mee bezig geweest. Morgen wil ik nog een reset knop toevoegen en een score functionaliteit. Het zou leuk zijn als de scores kunnen worden opgeslagen in localstorage. Morgen wil ik ook mijn leerdoelen toevoegen in mijn website.
 
@@ -26,6 +29,8 @@ Vandaag heb ik een scroll animatie toegevoegd van een eendje wat heen en terug b
 
 ## Week checkout - 11 februari
 Deze week heb ik de memory functionaliteit toegevoegd. Dit heb ik gedaan door data over mijn klasgenoten op te halen uit de api. Verder heb ik een scroll animatie toegevoegd waarbij er een paar eenden over het scherm een zwemmen. Ook heb ik gewerkt aan de responsiveness van mijn website. 
+
+<img width="653" height="350" alt="Schermafbeelding 2026-02-11 180753" src="https://github.com/user-attachments/assets/9402eab3-a4ba-4033-a319-096d83d4fe3f" />
 
 ### Bronvermelding
 Bronnen die gebruikt zijn tijdens het maken van deze website:
