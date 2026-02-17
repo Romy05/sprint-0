@@ -458,6 +458,8 @@ button.reset-button {
 }
 
 @keyframes moveWaves {
+    /*Ik wil beter worden in animaties met CSS, zodat ik betere code schrijf, 
+        waardoor mijn websites visueel aantrekkelijker zijn zonder dat dit veel tijd kost.*/
     0% {
         transform: translateX(-100vw);
     }
